@@ -53,6 +53,11 @@ import {
 import { getStopIfList } from '../utils/safetyHelpers';
 
 export default function GuidedStepsScreen({ navigation, route }) {
+console.log('[GuidedSteps] Screen rendering', {
+  hasParams: !!route?.params,
+  diagnosisKey: route?.params?.diagnosis?.diagnosisKey,
+});
+
   const {
     diagnosis,
     label,
@@ -716,6 +721,7 @@ export default function GuidedStepsScreen({ navigation, route }) {
       </View>
     </View>
   );
+
 }
 
 function StepSupportSection({ isOpen, onToggle, children }) {

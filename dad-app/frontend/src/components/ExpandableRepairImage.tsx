@@ -1,5 +1,15 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Animated, Image, Modal, PanResponder, Pressable, View, Text, StyleSheet } from 'react-native';
+import {
+  Animated,
+  Image,
+  Modal,
+  PanResponder,
+  Pressable,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
+
 import { getStepImage } from '../utils/getStepImage';
 import theme from '../constants/theme';
 
@@ -39,7 +49,15 @@ export default function ExpandableRepairImage({
   const gestureStartTime = useRef(0);
   const gestureMoved = useRef(false);
 
-  const resolvedImage = imageSource ? Image.resolveAssetSource(imageSource) : null;
+const resolvedImage = useMemo(() => {
+  if (!imageSource) return null;
+
+  if (typeof imageSource === 'object') {
+    return imageSource;
+  }
+
+  return null;
+}, [imageSource]);
 
   function getTouchCenter(touches: readonly any[]): Point {
     const first = touches[0];
