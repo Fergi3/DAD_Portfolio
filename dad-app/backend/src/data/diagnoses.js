@@ -1,0 +1,256 @@
+// diagnoses: Static seed data representing diagnosis results.
+// Each entry maps to a category and holds the full result payload.
+// Replace with database calls or richer logic when ready to expand.
+
+// diagnoses.js
+// Static fallback diagnosis data for each supported problem type.
+// The key must exactly match the problem type IDs used in the frontend and questions.js.
+// When OpenAI is enabled in openaiService.js, this data is used only as a backup.
+
+const diagnoses = {
+
+  'leaky-sink': {
+    issue: 'Loose P-trap connection or worn slip-joint washer',
+    confidence: 'Medium',
+    difficulty: 'Easy to Moderate',
+    estimatedTime: '15-30 minutes',
+    tools: [
+      'Bucket',
+      'Towel or rag',
+      'Adjustable wrench or channel-lock pliers',
+      'Replacement slip-joint washer (if needed)',
+      'Flashlight (optional)',
+      'Gloves (optional)',
+    ],
+    safetyWarning:
+      'Turn off both the hot and cold water supply valves under the sink before opening any connections. Turn on the faucet briefly afterward to release remaining water pressure.',
+    steps: [
+      'Place a bucket or towels under the P-trap to catch any water.',
+      'Dry the pipes and run a small amount of water to identify exactly where the leak starts.',
+      'Hand-tighten the slip-joint nuts first. If needed, use adjustable pliers to tighten gently.',
+      'Run water and check whether the leak has stopped.',
+    ],
+    callAPro:
+      'Call a plumber if you see corrosion on pipes, if the leak comes from inside the wall, or if tightening connections does not stop the drip.',
+  },
+
+  'running-toilet': {
+    issue: 'Worn flapper valve or faulty fill valve',
+    confidence: 'High',
+    difficulty: 'Easy',
+    estimatedTime: '20–40 minutes',
+    tools: [
+      'Universal replacement flapper',
+      'Replacement fill valve (optional)',
+      'Adjustable wrench',
+      'Sponge or towel',
+    ],
+    safetyWarning:
+      'No electrical hazard. Turn off the toilet shut-off valve (located behind or beside the toilet base) before making any repairs inside the tank.',
+    steps: [
+      'Remove the tank lid and set it safely aside.',
+      'Flush the toilet to empty the tank.',
+      'Turn off the shut-off valve on the supply line behind the toilet.',
+      'Inspect the flapper — if it looks warped, cracked, or discolored, replace it. Unhook the old flapper from the overflow tube and snap the new one in place.',
+      'Check the fill valve: if you hear hissing or see water overflowing into the overflow tube, adjust the float height or replace the fill valve.',
+      'Turn the shut-off valve back on, let the tank fill fully, and verify the water stops running within 30 seconds.',
+    ],
+    callAPro:
+      'If you have replaced both the flapper and fill valve and the toilet still runs, there may be a crack in the tank or a problem with the flush valve seat. Call a plumber.',
+  },
+
+  'clogged-disposal': {
+    issue: 'Jammed impeller plate or clog in the drain line',
+    confidence: 'High',
+    difficulty: 'Easy',
+    estimatedTime: '15–30 minutes',
+    tools: [
+      '1/4-inch hex (Allen) wrench',
+      'Flashlight',
+      'Tongs or pliers (never use bare hands)',
+    ],
+    safetyWarning:
+      'ALWAYS turn off the wall switch AND unplug the disposal from the outlet under the sink before reaching inside or inserting any tool. Never put your hand in the disposal.',
+    steps: [
+      'Turn OFF the wall switch and unplug the disposal from the outlet under the sink.',
+      'Look at the bottom of the disposal unit for the red reset button — press it firmly until it clicks.',
+      'Insert a 1/4-inch hex wrench into the center port on the bottom of the unit and turn it back and forth to free the jam.',
+      'Use tongs (never fingers) to remove any visible debris from the opening.',
+      'Plug the disposal back in. Wait 15 minutes, then press the reset button again if needed.',
+      'Turn on the cold water first, then flip the wall switch briefly to test.',
+    ],
+    callAPro:
+      'If the disposal is completely silent after resetting and the outlet has power, the motor may have burned out. Replacement is usually more cost-effective than repair.',
+  },
+
+  'tripped-breaker': {
+    issue: 'Overloaded circuit or a short circuit in a connected device',
+    confidence: 'Medium',
+    difficulty: 'Easy',
+    estimatedTime: '10–20 minutes',
+    tools: ['No tools required'],
+    safetyWarning:
+      'A frequently tripping breaker can indicate a serious wiring problem. If the breaker trips again immediately after resetting, do NOT reset it a second time — call a licensed electrician.',
+    steps: [
+      'Go to your main electrical panel (breaker box).',
+      'Find the tripped breaker — it will be in the center position between ON and OFF, or show an orange/red indicator window.',
+      'Before resetting: unplug or turn off devices in the affected rooms to reduce the circuit load.',
+      'Push the breaker firmly all the way to OFF first, then push it all the way back to ON.',
+      'Power should restore. Plug devices back in one at a time to identify any overloading appliance.',
+      'If a specific device causes the breaker to trip again, stop using it until it is professionally inspected.',
+    ],
+    callAPro:
+      'Call a licensed electrician if: the breaker trips repeatedly, if you smell burning or see scorch marks near the panel, if multiple breakers trip at once, or if the panel feels warm to the touch.',
+  },
+
+  'thermostat-issues': {
+    issue: 'Dead batteries, incorrect mode settings, or a wiring issue',
+    confidence: 'Medium',
+    difficulty: 'Easy',
+    estimatedTime: '15–30 minutes',
+    tools: [
+      'AA or AAA batteries (check your model)',
+      'Small flathead screwdriver',
+      'Smartphone (for smart thermostat resets)',
+    ],
+    safetyWarning:
+      'If you need to access the wiring behind the thermostat wall plate, turn off the HVAC system at the circuit breaker first to avoid a short circuit.',
+    steps: [
+      'If the screen is blank: replace the batteries. Most thermostats use AA or AAA batteries in a compartment on the side or back.',
+      'Check the system mode switch: set to HEAT for heating or COOL for cooling. Set the fan to AUTO.',
+      'Make sure the set temperature is at least 3–5 degrees above (for heat) or below (for cool) the current room temperature.',
+      'For smart thermostats: check the companion app for alerts, try a soft reset from the device menu, or hold the reset button for 5 seconds.',
+      'Locate the furnace power switch (it looks like a light switch, usually near the furnace) and confirm it is ON.',
+      'Check the furnace filter — a severely clogged filter triggers a safety shutoff on many systems.',
+    ],
+    callAPro:
+      'If you replace batteries, verify all settings, and the system still does not respond, the issue is likely with the wiring, control board, or HVAC unit itself. Call an HVAC technician.',
+  },
+
+  'dishwasher-not-draining': {
+    issue: 'Clogged filter, blocked drain hose, or garbage disposal connection',
+    confidence: 'High',
+    difficulty: 'Easy to Medium',
+    estimatedTime: '20–45 minutes',
+    tools: [
+      'Towels or a shallow pan',
+      'Screwdriver (Phillips)',
+      'Cleaning brush or old toothbrush',
+      'Dish soap',
+    ],
+    safetyWarning:
+      'Turn off power to the dishwasher at the circuit breaker before accessing the drain hose or any internal components.',
+    steps: [
+      'Scoop or sponge out as much standing water as possible from the bottom of the dishwasher.',
+      'Remove the bottom rack. Locate the filter — it is usually a cylindrical piece near the spray arm that twists out.',
+      'Rinse the filter under warm running water and scrub with a brush to remove all food debris.',
+      'Check the drain hose (behind the dishwasher or under the sink) for kinks or visible blockages.',
+      'If you have a garbage disposal: run it to clear any backup in the shared drain line. Also verify the knockout plug was removed if the disposal was recently installed.',
+      'Run a short rinse cycle and confirm the dishwasher drains completely.',
+    ],
+    callAPro:
+      'If drainage problems continue after cleaning the filter and clearing the hose and disposal, the drain pump or main control board may be faulty. Contact an appliance repair technician.',
+  },
+
+  'dryer-not-heating': {
+    issue: 'Clogged lint trap or vent duct, or a blown thermal fuse',
+    confidence: 'Medium',
+    difficulty: 'Easy to Medium',
+    estimatedTime: '20–60 minutes',
+    tools: [
+      'Dryer vent brush kit',
+      'Vacuum with hose attachment',
+      'Phillips and flathead screwdriver',
+    ],
+    safetyWarning:
+      'Unplug the dryer before cleaning the vent or accessing internal parts. For gas dryers, also close the gas supply valve. A blocked dryer vent is a leading cause of house fires — do not skip this check.',
+    steps: [
+      'Clean the lint screen thoroughly — pull out all visible lint before every load.',
+      'Unplug the dryer and pull it away from the wall to access the exhaust vent hose.',
+      'Disconnect the flexible vent hose from the back of the dryer and vacuum or brush out any lint clogs.',
+      'Go outside and check the exterior vent cover flap — clear any lint buildup, bird nests, or debris that block it from opening.',
+      'For electric dryers: check the breaker panel. Electric dryers use a 240V double-pole breaker. If only half trips, the drum spins but there is no heat.',
+      'Reconnect the vent hose, plug the dryer back in, and run a test load.',
+    ],
+    callAPro:
+      'If the dryer still produces no heat after cleaning the vent and checking the breaker, the thermal fuse or heating element has likely burned out. These repairs require disassembling the dryer — call an appliance repair technician.',
+  },
+
+  'door-hardware': {
+    issue: 'Loose hinge, misaligned strike plate, or dry lock mechanism',
+    confidence: 'High',
+    difficulty: 'Easy',
+    estimatedTime: '15–30 minutes',
+    tools: [
+      'Phillips screwdriver',
+      'Flathead screwdriver',
+      'WD-40 or dry lubricant spray',
+      'Longer wood screws (for stripped hinge holes)',
+    ],
+    safetyWarning:
+      'For exterior doors: do not remove the lock cylinder without having a replacement ready, as this will leave the door unsecured.',
+    steps: [
+      "For a stiff or stuck lock: spray a small amount of dry lubricant or WD-40 into the keyhole and around the latch bolt. Work the key or handle back and forth several times.",
+      "For a squeaky or loose hinge: tighten all hinge screws. If screws spin freely (stripped), insert wooden toothpicks with wood glue into the hole, let fully dry, then re-drive the screws.",
+      "For a door that won't latch: check if the latch bolt lines up with the strike plate hole. If not, loosen the strike plate screws slightly and shift it into alignment.",
+      'For a sticking door: identify where it rubs by feeling for drag as you close it. Tightening a loose top hinge usually lifts the door enough to clear the frame.',
+      'Lubricate all moving parts: hinges, latch mechanism, and deadbolt if present.',
+    ],
+    callAPro:
+      "Call a locksmith or carpenter if the door frame is visibly warped, the door was damaged structurally, or a deadbolt still won't function after lubrication and adjustment.",
+  },
+
+  'washer-leaking': {
+    issue: 'Loose or cracked supply hose, or a worn door gasket (front-load)',
+    confidence: 'Medium',
+    difficulty: 'Easy to Medium',
+    estimatedTime: '20–45 minutes',
+    tools: [
+      'Adjustable pliers',
+      'Replacement hose washers',
+      'Towels',
+      'Flashlight',
+    ],
+    safetyWarning:
+      'Turn off both water supply valves (hot and cold) behind the washer before inspecting any hose connections. Unplug the washer from the wall outlet.',
+    steps: [
+      'Pull the washer away from the wall and turn off both the hot and cold supply valves.',
+      'Inspect both supply hoses where they connect to the wall and to the washer — look for cracks, bulging, or moisture at the fittings.',
+      'Hand-tighten connections. If they still leak, turn off water, unscrew the hose, and replace the rubber washer inside the fitting.',
+      'For front-load washers: inspect the rubber door gasket/seal for visible tears or debris caught in the fold. Wipe it clean and look for cracks.',
+      'If the leak occurs during spin: the machine may be overloaded or unbalanced. Reduce load size and confirm the machine is level.',
+      'Run a short cycle and monitor closely to identify the exact source of the leak.',
+    ],
+    callAPro:
+      'If the leak comes from inside the cabinet (pump, tub seal, or bearing), call an appliance repair technician — these repairs require significant disassembly.',
+  },
+
+  'hvac-maintenance': {
+    issue: 'Routine maintenance needed — filter, drain line, and condenser',
+    confidence: 'High',
+    difficulty: 'Easy',
+    estimatedTime: '30–60 minutes',
+    tools: [
+      'Replacement air filter (correct size)',
+      'Vacuum with brush attachment',
+      'Wet/dry vacuum (for drain line)',
+      'Diluted bleach solution (1 part bleach, 10 parts water)',
+      'Screwdriver',
+    ],
+    safetyWarning:
+      'Turn the HVAC system OFF at the thermostat AND at the circuit breaker before opening access panels or touching internal components.',
+    steps: [
+      'Replace the air filter: locate the filter slot near the air handler or in a return air vent, note the size printed on the old filter, and install a new one of the same size.',
+      'Clear the condensate drain line: find the white PVC drain pipe near the indoor air handler and pour a cup of diluted bleach solution into the opening to prevent algae clogs.',
+      'Inspect the outdoor condenser unit: clear away leaves, grass clippings, and debris. Maintain at least 2 feet of clearance on all sides.',
+      "Vacuum the indoor unit's return vents and registers to improve airflow.",
+      'Check the thermostat batteries and confirm the system switches correctly between heating and cooling modes.',
+      'Turn the system back on and verify strong, even airflow from all vents in the home.',
+    ],
+    callAPro:
+      'Schedule a professional HVAC tune-up once a year (spring for AC, fall for heat). Call immediately if you hear grinding or squealing, smell burning, or see ice forming on the indoor coil or refrigerant lines.',
+  },
+
+};
+
+module.exports = diagnoses;

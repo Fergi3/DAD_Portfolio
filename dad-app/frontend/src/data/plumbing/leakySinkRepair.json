@@ -1,0 +1,50 @@
+[
+  {
+    "id": "learn-your-sink",
+    "title": "Learn Your Sink",
+    "description": "Identify the major parts under your sink before beginning repairs.",
+    "image": "assets/plumbing/sink/learn-your-sink.png",
+    "tip": null,
+    "optional": true
+  },
+  {
+    "id": "turn-off-water",
+    "title": "Turn Off Hot and Cold Water",
+    "description": "Turn both shutoff valves clockwise until fully closed.",
+    "image": "assets/plumbing/sink/turn-off-water.png",
+    "tip": "Turn the valves gently. Do not force them.",
+    "optional": false
+  },
+  {
+    "id": "place-bucket",
+    "title": "Place a Bucket or Towels Under the Sink",
+    "description": "Place a bucket or towels under the P-trap to catch any water that may spill out.",
+    "image": "assets/plumbing/sink/place-bucket.png",
+    "tip": "A bucket is best, but towels can help absorb small spills.",
+    "optional": false
+  },
+  {
+    "id": "inspect-leak-location",
+    "title": "Inspect the Leak Location",
+    "description": "Dry the pipes and run a small amount of water to identify exactly where the leak starts.",
+    "image": "assets/plumbing/sink/inspect-leak-location.png",
+    "tip": "Run only a small amount of water so it is easier to spot the first leak.",
+    "optional": false
+  },
+  {
+    "id": "tighten-slip-joint-nuts",
+    "title": "Tighten the Slip-Joint Nuts",
+    "description": "Hand-tighten the slip-joint nuts first. If needed, use adjustable channel locks to tighten gently.",
+    "image": "assets/plumbing/sink/tighten-slip-joint-nuts.png",
+    "tip": "Over-tightening can crack the nuts or strip the threads.",
+    "optional": false
+  },
+  {
+    "id": "test-for-leaks",
+    "title": "Test for Leaks",
+    "description": "Turn the water supply back on, run water, and check whether the leak has stopped.",
+    "image": "assets/plumbing/sink/test-for-leaks.png",
+    "tip": "Check both the supply valves and all drain connections for any signs of moisture.",
+    "optional": false
+  }
+]

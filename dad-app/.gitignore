@@ -1,0 +1,43 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Expo and React Native
+.expo/
+.expo-shared/
+dist/
+web-build/
+.startup-export-check/
+
+# Native build output
+android/.gradle/
+android/local.properties
+android/app/build/
+ios/Pods/
+ios/build/
+
+# Signing credentials
+*.keystore
+*.jks
+*.pem
+*.p12
+*.pfx
+*.key
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp

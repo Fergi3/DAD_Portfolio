@@ -1,0 +1,42 @@
+[
+  {
+    "id": "learn-your-toilet",
+    "title": "Learn Your Toilet",
+    "description": "Familiarize yourself with the main parts inside your toilet tank.",
+    "image": "assets/plumbing/toilet/learn-your-toilet.png",
+    "tip": "Most running toilets are caused by a worn flapper, but we'll help you check everything.",
+    "optional": true
+  },
+  {
+    "id": "remove-tank-lid",
+    "title": "Remove the Tank Lid",
+    "description": "Lift the tank lid straight up and place it on a flat surface.",
+    "image": "assets/plumbing/toilet/remove-tank-lid.png",
+    "tip": "Place the lid on a flat surface to avoid cracking it.",
+    "optional": false
+  },
+  {
+    "id": "flush-watch-flapper",
+    "title": "Flush and Watch the Flapper",
+    "description": "Flush the toilet and watch whether the flapper closes fully.",
+    "image": "assets/plumbing/toilet/flush-watch-flapper.png",
+    "tip": "If the flapper does not close completely, it is the most common cause of a running toilet.",
+    "optional": false
+  },
+  {
+    "id": "check-chain-slack",
+    "title": "Check Chain Slack",
+    "description": "The chain should have a small amount of slack when the flapper is closed.",
+    "image": "assets/plumbing/toilet/check-chain-slack.png",
+    "tip": "Too tight or too loose can prevent the flapper from sealing properly.",
+    "optional": false
+  },
+  {
+    "id": "check-overflow-tube",
+    "title": "Check the Overflow Tube",
+    "description": "Watch whether water rises into the overflow tube.",
+    "image": "assets/plumbing/toilet/check-overflow-tube.png",
+    "tip": "Water should stay below the top of the overflow tube.",
+    "optional": false
+  }
+]

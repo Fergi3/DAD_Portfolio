@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "D.A.D.",
+    "slug": "dad-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F6F5F0"
+    },
+    "platforms": ["ios", "android", "web"],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F6F5F0"
+      }
+    }
+  }
+}
